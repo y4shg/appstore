@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JyotiGPT – App Store</title>
+<style>
+  @font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    src: local("SF Pro Display Regular"),
+         url("https://cdn.jsdelivr.net/gh/sahibjotsaggu/San-Francisco-Pro-Fonts/SF-Pro-Display-Regular.woff") format("woff");
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: #f9f9fb;
+    color: #000;
+  }
+
+  .appstore-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .back {
+    color: #007aff;
+    font-size: 17px;
+    font-weight: 500;
+    margin-right: 10px;
+  }
+
+  .app-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 22px;
+  }
+
+  .app-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: white;
+  }
+
+  .app-details {
+    margin-left: 16px;
+  }
+
+  .app-name {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .app-subtitle {
+    color: #6e6e73;
+    margin-top: 3px;
+    font-size: 16px;
+  }
+
+  .get-btn {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 8px 22px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .get-btn:active {
+    opacity: 0.6;
+  }
+
+  .metadata {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 18px 0;
+    background: white;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .meta-item {
+    flex: 1;
+  }
+
+  .meta-title {
+    color: #8e8e93;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  .meta-value {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  .screenshots {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 20px;
+    background: white;
+  }
+
+  .screenshots img {
+    width: 220px;
+    border-radius: 18px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #8e8e93;
+    font-size: 13px;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+  <div class="appstore-header">
+    <div class="back">‹ Apps</div>
+  </div>
+
+  <div class="app-info">
+    <img src="https://raw.githubusercontent.com/y4shg/jyotigpt/main/assets/icon.png" class="app-icon" alt="JyotiGPT Icon">
+    <div class="app-details">
+      <div class="app-name">JyotiGPT</div>
+      <div class="app-subtitle">Spiritual AI Chat</div>
+      <a id="download-link" href="#">
+        <button id="get-btn" class="get-btn">GET</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="metadata">
+    <div class="meta-item">
+      <div class="meta-title">RATINGS</div>
+      <div class="meta-value">4.8 ★</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-title">AGE</div>
+      <div class="meta-value">4+</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-title">CATEGORY</div>
+      <div class="meta-value">Lifestyle</div>
+    </div>
+  </div>
+
+  <div class="screenshots">
+    <img src="https://via.placeholder.com/300x600/eeeeee/888888?text=JyotiGPT+1" alt="screenshot1">
+    <img src="https://via.placeholder.com/300x600/eeeeee/888888?text=JyotiGPT+2" alt="screenshot2">
+    <img src="https://via.placeholder.com/300x600/eeeeee/888888?text=JyotiGPT+3" alt="screenshot3">
+  </div>
+
+  <div class="footer">
+    In-App Purchases • © 2025 JyotiGPT
+  </div>
+
+<script>
+  // Detect platform
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const btn = document.getElementById("get-btn");
+  const link = document.getElementById("download-link");
+
+  if (/android/i.test(userAgent)) {
+    btn.textContent = "GET (APK)";
+    link.href = "https://github.com/y4shg/jyotigpt/releases/download/v0.9.3/jyotigpt-0.9.3.apk";
+  } 
+  else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    btn.textContent = "GET (iOS)";
+    // Example IPA download link (you can replace with your real one)
+    link.href = "https://github.com/y4shg/jyotigpt/releases/download/v0.9.3/jyotigpt-0.9.3.ipa";
+  } 
+  else {
+    btn.textContent = "Download Not Supported";
+    btn.style.background = "#ccc";
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
